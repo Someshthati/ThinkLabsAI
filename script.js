@@ -27,18 +27,8 @@ if (hamburger && navLinks) {
   });
 }
 
-// Add js-ready to body so CSS knows JS is active - enables reveal animations
-document.body.classList.add('js-ready');
-
-// Mark all currently visible elements immediately
-document.querySelectorAll('.reveal').forEach(el => {
-  const rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight) {
-    el.classList.add('visible');
-  }
-});
-
-// Reveal on scroll for below-fold elements
+// Reveal on scroll
+// Generous rootMargin ensures above-fold elements trigger immediately
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -46,9 +36,16 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.05 });
+}, { threshold: 0.05, rootMargin: '200px 0px 0px 0px' });
 
-document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Fallback: force all reveals visible after 400ms in case observer misses above-fold elements
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 400);
 
 // Counter animation
 function animateCount(el) {
