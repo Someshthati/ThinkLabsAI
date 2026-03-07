@@ -50,7 +50,7 @@ ul { list-style: none; }
   padding: 0 2rem;
 }
 
-.section { padding: 7rem 0; }
+.section { padding: 5rem 0; }
 .text-center { text-align: center; }
 
 /* ============================================
@@ -187,14 +187,14 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 3rem;
+  padding: 0.9rem 3rem;
   transition: var(--transition);
 }
 .nav.scrolled {
   background: rgba(10,12,16,0.92);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  padding: 0.8rem 3rem;
+  padding: 0.65rem 3rem;
 }
 
 .nav-logo {
@@ -261,7 +261,7 @@ ul { list-style: none; }
   min-height: auto;
   display: flex;
   align-items: center;
-  padding: 8rem 3rem 6rem;
+  padding: 6rem 3rem 4rem;
   position: relative;
   overflow: hidden;
   max-width: var(--max-w);
@@ -354,10 +354,10 @@ ul { list-style: none; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
+  line-height: 1.18;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 
@@ -819,7 +819,7 @@ ul { list-style: none; }
    ============================================ */
 
 .page-hero {
-  padding: 10rem 2rem 5rem;
+  padding: 6rem 2rem 3rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -832,17 +832,16 @@ ul { list-style: none; }
 }
 .page-hero .section-label { justify-content: center; }
 .page-hero-title {
-  font-weight: 700;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   max-width: 700px;
-  margin: 0 auto 1.5rem;
-  letter-spacing: -0.03em;
+  margin: 0 auto 1rem;
+  letter-spacing: -0.02em;
 }
 .page-hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-muted);
   max-width: 560px;
   margin: 0 auto;
