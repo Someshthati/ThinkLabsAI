@@ -1856,3 +1856,98 @@ ul { list-style: none; }
   .rag-explainer { grid-template-columns: 1fr; }
   .usecase-header { flex-direction: column; }
 }
+
+/* ============================================
+   TESTIMONIALS MARQUEE
+   ============================================ */
+
+.testimonials-marquee-section { overflow: hidden; padding-bottom: 5rem; }
+.testimonials-marquee-section .container { margin-bottom: 3rem; }
+
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+.marquee-left {
+  animation: scrollLeft 35s linear infinite;
+}
+.marquee-right {
+  animation: scrollRight 40s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.marquee-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+.marquee-card .stars {
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+.marquee-card p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+  flex: 1;
+}
+.marquee-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.marquee-author .author-avatar-letter {
+  width: 36px;
+  height: 36px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.marquee-author strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.marquee-author span {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.marquee-row-2 { margin-top: 1.5rem; }
