@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — NexGen Tech</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav scrolled" id="mainNav">
+    <a href="index.html" class="nav-logo">Nex<span>Gen</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="training.html">Training</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" class="active nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="section-label reveal">Let's Talk</div>
+    <h1 class="page-hero-title reveal delay-1">
+      We'd Love to Hear<br/><span class="gradient-text">From You</span>
+    </h1>
+    <p class="page-hero-subtitle reveal delay-2">
+      Whether you have a specific project in mind, want to learn more about our training, or just want to explore what's possible — drop us a message and we'll get back to you within one business day.
+    </p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info reveal">
+          <h2>Get in Touch</h2>
+          <p>No hard sell, no commitment required. Just a friendly conversation about your goals and how technology might help.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <span>hello@nexgentech.io</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <span>+44 20 1234 5678</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <span>London, United Kingdom<br/>(Remote-first, serving clients globally)</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div>
+              <strong>Response Time</strong>
+              <span>Within 1 business day<br/>Mon–Fri, 9am–6pm GMT</span>
+            </div>
+          </div>
+
+          <div class="social-links" style="margin-top:2rem;">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="GitHub">gh</a>
+          </div>
+
+          <div class="contact-guarantee reveal delay-2">
+            <div class="guarantee-icon">🔒</div>
+            <p>Your information is kept private. We never share or sell your details, and you can opt out of any communication at any time.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="reveal delay-2">
+          <div class="contact-form">
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company / Organisation</label>
+                <input type="text" id="company" name="company" placeholder="Your company name" />
+              </div>
+
+              <div class="form-group">
+                <label for="interest">What are you interested in? *</label>
+                <select id="interest" name="interest" required>
+                  <option value="" disabled selected>Select a topic…</option>
+                  <optgroup label="Services">
+                    <option value="ai">Agentic AI Solutions</option>
+                    <option value="sharepoint">SharePoint Migration</option>
+                    <option value="data">Data Engineering</option>
+                    <option value="arvr">AR/VR + AI</option>
+                    <option value="mobile">Mobile App Development</option>
+                  </optgroup>
+                  <optgroup label="Training">
+                    <option value="training-business">AI for Business Leaders</option>
+                    <option value="training-agents">Building AI Agents</option>
+                    <option value="training-dev">Developer Fundamentals</option>
+                    <option value="training-corporate">Corporate / Team Training</option>
+                  </optgroup>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Approximate Budget</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select range…</option>
+                  <option value="<5k">Under £5,000</option>
+                  <option value="5-15k">£5,000 – £15,000</option>
+                  <option value="15-50k">£15,000 – £50,000</option>
+                  <option value="50k+">£50,000+</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell us more *</label>
+                <textarea id="message" name="message" placeholder="What's the problem you're trying to solve? What have you tried already? Any specific timeline or requirements? The more context, the better we can help." required></textarea>
+              </div>
+
+              <div class="form-group" style="display:flex; align-items:flex-start; gap:0.75rem; margin-bottom:2rem;">
+                <input type="checkbox" id="consent" name="consent" required style="width:auto; margin-top:3px; flex-shrink:0;" />
+                <label for="consent" style="font-size:0.82rem; color: var(--text-muted); text-transform:none; letter-spacing:0; font-weight:400;">
+                  I agree to NexGen Tech storing my details to respond to this enquiry. I understand I can withdraw consent at any time.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg form-submit-btn" style="width:100%; justify-content:center;">
+                Send Message →
+              </button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">✅</div>
+              <h3>Message Sent!</h3>
+              <p>Thank you for reaching out. We'll get back to you within one business day.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP / VISUAL -->
+  <section class="feature-image-section">
+    <div class="feature-img-wrap">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80" alt="Team meeting" />
+      <div class="feature-img-text">
+        <h3>Free 30-Minute Discovery Call</h3>
+        <p>No slides, no pitch deck. Just a real conversation about your challenges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Nex<span>Gen</span></a>
+          <p>Enterprise-grade tech solutions built for small and growing businesses.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#ai">Agentic AI</a></li>
+            <li><a href="services.html#sharepoint">SharePoint</a></li>
+            <li><a href="services.html#data">Data Engineering</a></li>
+            <li><a href="services.html#arvr">AR/VR</a></li>
+            <li><a href="services.html#mobile">Mobile Apps</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get In Touch</h4>
+          <p>hello@nexgentech.io</p>
+          <p>+44 20 1234 5678</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="GitHub">gh</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 NexGen Tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
