@@ -28,6 +28,7 @@ if (hamburger && navLinks) {
 }
 
 // Reveal on scroll
+// Generous rootMargin ensures above-fold elements trigger immediately
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -35,9 +36,16 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '200px 0px 0px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Fallback: force all reveals visible after 400ms in case observer misses above-fold elements
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 400);
 
 // Counter animation
 function animateCount(el) {
