@@ -27,8 +27,18 @@ if (hamburger && navLinks) {
   });
 }
 
-// Reveal on scroll
-// Generous rootMargin ensures above-fold elements trigger immediately
+// Add js-ready to body so CSS knows JS is active - enables reveal animations
+document.body.classList.add('js-ready');
+
+// Mark all currently visible elements immediately
+document.querySelectorAll('.reveal').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight) {
+    el.classList.add('visible');
+  }
+});
+
+// Reveal on scroll for below-fold elements
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -36,16 +46,9 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.05, rootMargin: '200px 0px 0px 0px' });
+}, { threshold: 0.05 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Fallback: force all reveals visible after 400ms in case observer misses above-fold elements
-setTimeout(() => {
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-    el.classList.add('visible');
-  });
-}, 400);
+document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
 
 // Counter animation
 function animateCount(el) {
@@ -74,23 +77,38 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
 
-// Contact form handler
+// Contact form handler — Formspree
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = this.querySelector('.form-submit-btn');
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
-    // Simulate sending (replace with real endpoint / EmailJS / Formspree)
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      const success = document.getElementById('formSuccess');
-      if (success) {
-        success.style.display = 'block';
+    const data = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        contactForm.style.display = 'none';
+        const success = document.getElementById('formSuccess');
+        if (success) success.style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        alert('Something went wrong. Please email us directly at Thinklabs009@gmail.com');
       }
-    }, 1800);
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
+      alert('Unable to send. Please email us directly at Thinklabs009@gmail.com');
+    }
   });
 }
 
