@@ -1950,3 +1950,14 @@ ul { list-style: none; }
   color: var(--text-dim);
 }
 .marquee-row-2 { margin-top: 1.5rem; }
+
+/* Email link */
+.email-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.email-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
