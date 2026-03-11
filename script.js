@@ -1,6 +1,8 @@
 // ============================================
-// NEXGEN TECH — GLOBAL SCRIPTS
+// THINKLABS AI — GLOBAL SCRIPTS
 // ============================================
+
+document.addEventListener("DOMContentLoaded", function() {
 
 // Nav scroll effect
 const nav = document.getElementById('mainNav');
@@ -129,3 +131,5 @@ document.querySelectorAll('a[href*="#"]').forEach(link => {
     }
   });
 });
+
+}); // end DOMContentLoaded
