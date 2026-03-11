@@ -12,20 +12,36 @@ if (nav) {
   });
 }
 
-// Mobile hamburger
+// Mobile hamburger - touch and click both supported
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
-  });
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('touchend', toggleMenu, { passive: false });
+
   // Close on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinks.classList.remove('open');
+      document.body.style.overflow = '';
     });
+  });
+
+  // Close on outside tap
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 }
 
