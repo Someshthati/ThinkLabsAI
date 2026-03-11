@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a04b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e06b30;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3dd9c5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ab8a6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a04b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3dd9c5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon mark: Neural network / brain nodes -->
+  <g transform="translate(10, 15)">
+    <!-- Outer hexagon ring -->
+    <polygon points="45,5 80,25 80,65 45,85 10,65 10,25" 
+             fill="none" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.3"/>
+
+    <!-- Connection lines -->
+    <line x1="45" y1="20" x2="30" y2="45" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.6"/>
+    <line x1="45" y1="20" x2="60" y2="45" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.6"/>
+    <line x1="30" y1="45" x2="45" y2="70" stroke="url(#tealGrad)" stroke-width="1.2" opacity="0.6"/>
+    <line x1="60" y1="45" x2="45" y2="70" stroke="url(#tealGrad)" stroke-width="1.2" opacity="0.6"/>
+    <line x1="30" y1="45" x2="60" y2="45" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+
+    <!-- Node: top -->
+    <circle cx="45" cy="20" r="6" fill="url(#accentGrad)" filter="url(#glow)"/>
+    <circle cx="45" cy="20" r="3" fill="#fff" opacity="0.9"/>
+
+    <!-- Node: left -->
+    <circle cx="30" cy="45" r="5" fill="url(#accentGrad)" opacity="0.85"/>
+    <circle cx="30" cy="45" r="2.5" fill="#fff" opacity="0.8"/>
+
+    <!-- Node: right -->
+    <circle cx="60" cy="45" r="5" fill="url(#tealGrad)" opacity="0.85"/>
+    <circle cx="60" cy="45" r="2.5" fill="#fff" opacity="0.8"/>
+
+    <!-- Node: bottom -->
+    <circle cx="45" cy="70" r="6" fill="url(#tealGrad)" filter="url(#glow)"/>
+    <circle cx="45" cy="70" r="3" fill="#fff" opacity="0.9"/>
+
+    <!-- Center node -->
+    <circle cx="45" cy="45" r="7" fill="url(#iconGrad)" filter="url(#glow)"/>
+    <circle cx="45" cy="45" r="3.5" fill="#fff" opacity="0.95"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(108, 0)">
+    <!-- ThinkLabs -->
+    <text x="0" y="58" 
+          font-family="'Outfit', 'Segoe UI', Arial, sans-serif" 
+          font-size="38" 
+          font-weight="700" 
+          letter-spacing="-1"
+          fill="#e8eaf0">Think</text>
+    <text x="107" y="58" 
+          font-family="'Outfit', 'Segoe UI', Arial, sans-serif" 
+          font-size="38" 
+          font-weight="700"
+          letter-spacing="-1"
+          fill="url(#accentGrad)">Labs</text>
+
+    <!-- AI -->
+    <text x="175" y="58" 
+          font-family="'Outfit', 'Segoe UI', Arial, sans-serif" 
+          font-size="38" 
+          font-weight="300"
+          letter-spacing="1"
+          fill="url(#tealGrad)"> AI</text>
+
+    <!-- Tagline -->
+    <text x="2" y="80" 
+          font-family="'Outfit', 'Segoe UI', Arial, sans-serif" 
+          font-size="12" 
+          font-weight="400"
+          letter-spacing="3.5"
+          fill="#8892a4"
+          text-transform="uppercase">SOLUTIONS</text>
+
+    <!-- Accent line under tagline -->
+    <line x1="2" y1="85" x2="85" y2="85" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.5"/>
+  </g>
+</svg>

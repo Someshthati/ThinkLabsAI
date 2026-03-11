@@ -1979,3 +1979,10 @@ ul { list-style: none; }
   opacity: 0.8;
   text-decoration: underline;
 }
+
+/* Nav logo image */
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}

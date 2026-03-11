@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a04b"/>
+      <stop offset="100%" style="stop-color:#e06b30"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3dd9c5"/>
+      <stop offset="100%" style="stop-color:#2ab8a6"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a04b"/>
+      <stop offset="100%" style="stop-color:#3dd9c5"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#0f1218"/>
+
+  <!-- Hexagon ring -->
+  <polygon points="32,6 56,19 56,45 32,58 8,45 8,19"
+           fill="none" stroke="url(#iconGrad)" stroke-width="1.2" opacity="0.25"/>
+
+  <!-- Connection lines -->
+  <line x1="32" y1="16" x2="20" y2="32" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.6"/>
+  <line x1="32" y1="16" x2="44" y2="32" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.6"/>
+  <line x1="20" y1="32" x2="32" y2="48" stroke="url(#tealGrad)" stroke-width="1.2" opacity="0.6"/>
+  <line x1="44" y1="32" x2="32" y2="48" stroke="url(#tealGrad)" stroke-width="1.2" opacity="0.6"/>
+  <line x1="20" y1="32" x2="44" y2="32" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+
+  <!-- Top node -->
+  <circle cx="32" cy="16" r="5" fill="url(#accentGrad)" filter="url(#glow)"/>
+  <circle cx="32" cy="16" r="2.5" fill="#fff" opacity="0.9"/>
+
+  <!-- Left node -->
+  <circle cx="20" cy="32" r="4" fill="url(#accentGrad)" opacity="0.85"/>
+  <circle cx="20" cy="32" r="2" fill="#fff" opacity="0.8"/>
+
+  <!-- Right node -->
+  <circle cx="44" cy="32" r="4" fill="url(#tealGrad)" opacity="0.85"/>
+  <circle cx="44" cy="32" r="2" fill="#fff" opacity="0.8"/>
+
+  <!-- Bottom node -->
+  <circle cx="32" cy="48" r="5" fill="url(#tealGrad)" filter="url(#glow)"/>
+  <circle cx="32" cy="48" r="2.5" fill="#fff" opacity="0.9"/>
+
+  <!-- Center node -->
+  <circle cx="32" cy="32" r="6" fill="url(#iconGrad)" filter="url(#glow)"/>
+  <circle cx="32" cy="32" r="3" fill="#fff" opacity="0.95"/>
+</svg>
