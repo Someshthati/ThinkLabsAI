@@ -1990,15 +1990,15 @@ ul { list-style: none; }
 
 /* Nav logo image */
 .nav-logo-img {
-  height: 74px;
+  height: 100px;
   width: auto;
   display: block;
-  max-width: 220px;
+  max-width: 350px;
   object-fit: contain;
 }
 @media (max-width: 768px) {
   .nav-logo-img {
-    height: 34px;
+    height: 45px;
     max-width: 160px;
   }
 }
