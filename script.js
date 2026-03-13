@@ -12,35 +12,59 @@ if (nav) {
   });
 }
 
-// Mobile hamburger - touch and click both supported
+// Mobile hamburger
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 if (hamburger && navLinks) {
-  function toggleMenu(e) {
-    e.preventDefault();
-    e.stopPropagation();
+  let touchMoved = false;
+
+  function openMenu() {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   }
-  hamburger.addEventListener('click', toggleMenu);
-  hamburger.addEventListener('touchend', toggleMenu, { passive: false });
 
-  // Close on link click
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Track if finger moved (scroll vs tap)
+  hamburger.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
+  hamburger.addEventListener('touchmove', () => { touchMoved = true; }, { passive: true });
+  hamburger.addEventListener('touchend', (e) => {
+    if (touchMoved) return;
+    e.preventDefault();
+    openMenu();
+  }, { passive: false });
+
+  // Fallback click for desktop / devices where touch doesn't fire
+  hamburger.addEventListener('click', (e) => {
+    // Only handle if not already handled by touchend
+    if (e.detail === 0) return; // keyboard triggered
+    openMenu();
+  });
+
+  // Close on nav link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 
   // Close on outside tap
+  document.addEventListener('touchstart', (e) => {
+    if (navLinks.classList.contains('open') &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  }, { passive: true });
+
   document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
+    if (navLinks.classList.contains('open') &&
+        !navLinks.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      closeMenu();
     }
   });
 }

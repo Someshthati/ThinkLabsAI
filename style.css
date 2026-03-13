@@ -183,7 +183,7 @@ ul { list-style: none; }
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 1000;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,7 +242,15 @@ ul { list-style: none; }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
+  position: relative;
+  z-index: 10002;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .hamburger span {
   display: block;
@@ -1270,7 +1278,7 @@ ul { list-style: none; }
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
-    z-index: 9998;
+    z-index: 10001;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1284,11 +1292,15 @@ ul { list-style: none; }
   .nav-links li a { font-size: 1.2rem; }
   .hamburger {
     display: flex !important;
-    z-index: 9999;
+    z-index: 10002;
     position: relative;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -1990,15 +2002,15 @@ ul { list-style: none; }
 
 /* Nav logo image */
 .nav-logo-img {
-  height: 100px;
+  height: 44px;
   width: auto;
   display: block;
-  max-width: 350px;
+  max-width: 220px;
   object-fit: contain;
 }
 @media (max-width: 768px) {
   .nav-logo-img {
-    height: 45px;
+    height: 34px;
     max-width: 160px;
   }
 }
